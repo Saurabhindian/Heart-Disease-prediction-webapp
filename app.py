@@ -155,77 +155,10 @@ if st.button("🔍 Predict Risk", use_container_width=True):
 
     else:
         st.error("🔴 High Risk of Heart Disease")
-# ---------------- DOCTOR REPORT ----------------
 
-st.subheader("🩺 Medical Assessment Report")
-
-if risk_percent < 30:
-    risk_level = "LOW"
-elif risk_percent < 70:
-    risk_level = "MODERATE"
-else:
-    risk_level = "HIGH"
-
-report = f"""
-PATIENT HEART HEALTH REPORT
-
-----------------------------------------
-PATIENT INFORMATION
-----------------------------------------
-Age               : {age}
-Gender            : {sex}
-
-----------------------------------------
-VITAL PARAMETERS
-----------------------------------------
-Blood Pressure    : {resting_bp} mmHg
-Cholesterol       : {cholesterol} mg/dL
-Maximum Heart Rate: {max_hr} bpm
-Fasting Blood Sugar: {fasting_bs}
-
-----------------------------------------
-AI ASSESSMENT
-----------------------------------------
-Risk Percentage   : {risk_percent:.2f}%
-Risk Level        : {risk_level}
-
-----------------------------------------
-DOCTOR RECOMMENDATIONS
-----------------------------------------
-"""
-
-if risk_level == "LOW":
-    report += """
-✓ Maintain a balanced diet
-✓ Exercise at least 30 minutes daily
-✓ Continue regular health checkups
-✓ Maintain healthy body weight
-"""
-
-elif risk_level == "MODERATE":
-    report += """
-⚠ Reduce cholesterol-rich foods
-⚠ Monitor blood pressure regularly
-⚠ Increase physical activity
-⚠ Schedule periodic heart checkups
-"""
-
-else:
-    report += """
-🚨 Consult a cardiologist immediately
-🚨 Monitor blood pressure and cholesterol
-🚨 Follow a strict heart-healthy diet
-🚨 Avoid smoking and alcohol
-🚨 Seek professional medical guidance
-"""
-
-st.text_area(
-    "Generated Medical Report",
-    report,
-    height=450
-)
     # ---------------- SUMMARY ----------------
-st.subheader("📝 Patient Summary")
+
+    st.subheader("📝 Patient Summary")
 
     summary = pd.DataFrame({
         "Parameter": [
