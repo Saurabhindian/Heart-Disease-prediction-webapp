@@ -225,8 +225,7 @@ st.text_area(
     height=450
 )
     # ---------------- SUMMARY ----------------
-
-    st.subheader("📝 Patient Summary")
+st.subheader("📝 Patient Summary")
 
     summary = pd.DataFrame({
         "Parameter": [
